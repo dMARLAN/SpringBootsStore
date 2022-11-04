@@ -1,5 +1,6 @@
 package com.marlan.springbootsstore.entities;
 
+import com.marlan.springbootsstore.dto.BootDTO;
 import com.marlan.springbootsstore.enums.BootType;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -31,6 +32,13 @@ public class Boot {
 
     @Column(name="QUANTITY")
     private Integer quantity;
+
+    public Boot(BootDTO bootDTO) {
+        this.material = bootDTO.getMaterial();
+        this.type = bootDTO.getType();
+        this.size = bootDTO.getSize();
+        this.quantity = bootDTO.getQuantity();
+    }
 
     @Override
     public boolean equals(Object o) {
